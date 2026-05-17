@@ -237,6 +237,8 @@ def ask_ai():
             "error": f"AI analysis failed: {str(e)}"
         }), 500
 
-
 if __name__ == "__main__":
-    app.run(debug=True)
+    import os
+    # Render assigns a random port dynamically via the PORT environment variable
+    port = int(os.getenv("PORT", 5000)) 
+    app.run(host="0.0.0.0", port=port)
