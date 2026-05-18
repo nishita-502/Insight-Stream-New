@@ -14,8 +14,8 @@ from engine.models import calculate_impact_score
 
 # Modern LangChain Imports
 from langchain_groq import ChatGroq
-from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain_community.vectorstores import Chroma
+from langchain_huggingface import HuggingFaceEndpointEmbeddings
+from langchain_chroma import Chroma
 from langchain_classic.chains import create_retrieval_chain
 from langchain_classic.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
@@ -32,7 +32,10 @@ db = client.insight_stream
 collection = db.news_articles
 
 # --- EMBEDDINGS SETUP ---
-embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
+embeddings = HuggingFaceEndpointEmbeddings(
+    model="sentence-transformers/all-MiniLM-L6-v2"
+)
+
 CHROMA_PATH = os.path.join(os.getcwd(), "chroma_db")
 
 
