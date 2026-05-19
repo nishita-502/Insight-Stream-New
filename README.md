@@ -127,7 +127,7 @@ InsightStream/
 ### 4. **AI Query Processing**
 - User submits natural language query
 - Retrieves most relevant articles using semantic search
-- Ollama Mistral LLM generates context-aware response
+- Groq's 'llama-3.1-8b-instant' LLM generates context-aware response
 - Uses RAG (Retrieval Augmented Generation) pattern
 
 ## Usage
